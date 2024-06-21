@@ -9,11 +9,12 @@ This is a project to try refactor a **switch case** to different patterns like d
 2. any code copilot tools(you can do it manually if don't have any)
 
 
-### install dependencies
+### Install dependencies
 `npm i`
 
-### hints
+### Hints
 In each of the folder there will be a `*.ts.backup` file which is the final state of the task, can refer it if you get stucked
+
 ### Steps
 1. make up the unit test for `feeCalculator.test.ts` in `1.origin` folder, you can use the inline prompt tool to let copilot generate the test for you
 2. refactor the `feeCalculator.ts` in `2.dic` folder, try to refactor the **switch case** with a dictionary, the key is the type, the value is a lambda expression, can use such prompt `refactor the switch case to a dic, the value of dic must be a function`
