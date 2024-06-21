@@ -1,0 +1,80 @@
+export abstract class Vehicle {
+    abstract getFee(): number;
+    abstract getType(): string;
+}
+
+export class Car extends Vehicle {
+    getFee(): number {
+        return 5;
+    }
+
+    getType(): string {
+        return 'car';
+    }
+}
+
+export class Truck extends Vehicle {
+    getFee(): number {
+        return 10;
+    }
+
+    getType(): string {
+        return 'truck';
+    }
+}
+
+export class Motorcycle extends Vehicle {
+    getFee(): number {
+        return 2;
+    }
+
+    getType(): string {
+        return 'motorcycle';
+    }
+}
+
+
+export class DefaultVehicle extends Vehicle {
+    getFee(): number {
+        return 0;
+    }
+
+    getType(): string {
+        return 'default';
+    }
+}
+export class DiscountedVehicle extends Vehicle {
+    constructor(private vehicle: Vehicle, private discount: number) {
+        super();
+    }
+
+    getFee(): number {
+        const fee = this.vehicle.getFee();
+        return fee * this.discount;
+    }
+
+    getType(): string {
+        return this.vehicle.getType();
+    }
+}
+
+export class VehicleFactory {
+    static createVehicle(type: string, discount: number = 0): Vehicle {
+        let vehicle: Vehicle;
+        switch (type) {
+            case 'car': vehicle = new Car(); break;
+            case 'truck': vehicle = new Truck(); break;
+            case 'motorcycle': vehicle = new Motorcycle(); break;
+            default: return new DefaultVehicle();
+        }
+
+        return discount ? new DiscountedVehicle(vehicle, discount) : vehicle;
+    }
+}
+
+export class FeeCalculator {
+    calculateFee(type: string, discount: number = 0): number {
+        const vehicle = VehicleFactory.createVehicle(type, discount);
+        return vehicle.getFee();
+    }
+}

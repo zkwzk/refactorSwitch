@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "src/**/*.ts"
+, "src/step1/__tests__/feeCalculator.test.ts.backup", "src/3.factory/feeCalculator.ts.backup", "src/2.dic/feeCalculator.ts.backup", "src/2.dic/__tests__/feeCalculator.test.ts.backsrc/4.withoutSwitch/feeCalculator.ts.backu, "src/5.decoratorPattern/feeCalculator.ts.backup"pbackup"  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

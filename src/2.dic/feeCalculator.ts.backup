@@ -1,0 +1,16 @@
+export class FeeCalculator {
+    calculateDic = new Map<string, () => number>(
+        [
+            ['car', () => 5],
+            ['truck', () => 10],
+            ['motorcycle', () => 2]
+        ]
+    );
+    calculateFee(type: string) : number {
+        if(this.calculateDic.has(type)){
+            return this.calculateDic.get(type)!();
+        }
+
+        return 0;
+    }
+}
